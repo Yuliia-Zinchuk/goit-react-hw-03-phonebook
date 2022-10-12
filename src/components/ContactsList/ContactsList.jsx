@@ -5,12 +5,21 @@ export const ContactsList = ({ contacts, filter, onDeleteContact }) => {
   return (
     <>
       <ul className={css.contacts_list}>
-        <ContactsListItem
-          onDeleteContact={onDeleteContact}
-          contacts={contacts.filter(contact =>
-            contact.name.toLowerCase().includes(filter.toLowerCase())
-          )}
-        />
+        {contacts
+          .filter(({ name }) =>
+            name.toLowerCase().includes(filter.toLowerCase())
+          )
+          .map(({ id, name, number }) => (
+            <li className={css.contactItem} key={id}>
+              <ContactsListItem
+                name={name}
+                number={number}
+                onDeleteContact={() => {
+                  onDeleteContact(id);
+                }}
+              />
+            </li>
+          ))}
       </ul>
     </>
   );
@@ -24,7 +33,7 @@ ContactsList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      // number: PropTypes.number.isRequired,
+      number: PropTypes.string.isRequired,
     }).isRequired
   ),
 };

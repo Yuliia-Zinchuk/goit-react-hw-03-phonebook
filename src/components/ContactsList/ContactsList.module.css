@@ -2,8 +2,14 @@
   padding-left: 100px;
   font-weight: 400;
   font-size: 20px;
+  /* list-style-type: disc;
+  list-style-position: inside; */
 }
 
+ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
 .contactItem {
   display: flex;
   gap: 15px;
@@ -23,4 +29,14 @@
   border: none;
   border-radius: 5px;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn:hover {
+  background-color: #0b1baa;
+}
+
+.btn:active {
+  background-color: #0b1baa;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
