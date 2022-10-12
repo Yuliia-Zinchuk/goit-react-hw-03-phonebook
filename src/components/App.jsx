@@ -50,6 +50,28 @@ export class App extends Component {
     });
   };
 
+  componentDidMount() {
+    console.log('App componentDidMount');
+    const parsedContacts = localStorage.getItem('contacts');
+    console.log(parsedContacts);
+    //  this.state.contacts = currentTime;
+    if (parsedContacts) {
+      this.setState(() => ({
+        contacts: JSON.parse(parsedContacts),
+      }));
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('App componentDidUpdate');
+    console.log(prevState);
+    console.log(this.state);
+    if (this.state.contacts !== prevState.contacts) {
+      console.log('обновилось поле contacts');
+
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
   render() {
     // const { contacts, filter } = this.state;
     const {
