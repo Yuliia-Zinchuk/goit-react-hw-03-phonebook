@@ -51,7 +51,7 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    console.log('App componentDidMount');
+    // console.log('App componentDidMount');
     const parsedContacts = localStorage.getItem('contacts');
     console.log(parsedContacts);
     //  this.state.contacts = currentTime;
@@ -63,9 +63,9 @@ export class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('App componentDidUpdate');
-    console.log(prevState);
-    console.log(this.state);
+    // console.log('App componentDidUpdate');
+    // console.log(prevState);
+    // console.log(this.state);
     if (this.state.contacts !== prevState.contacts) {
       console.log('обновилось поле contacts');
 
